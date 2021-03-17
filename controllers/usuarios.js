@@ -20,11 +20,10 @@ const usuarioGet = async (req = request, res= response) => {
 
     const total = await Usuario.countDocuments({estado:true}); */
 
-
     //Usamos de esta manera mejor porque asi optimizamos el tiempo de respuesta de las promesas ya que 
     //en la primera funcion una tiene que esperar a la otra cuando no depende de ella aqui ambas se ejecutan
     //pero solo compila cuando ambas promesas son correctas, usamos desestructuracion para poner detallar los datos
-    const [total, usuarios] = Promise.all([
+    const [total, usuarios] = await Promise.all([
         Usuario.count(query),
         Usuario.find(query)
             .skip(Number(desde))

@@ -1,4 +1,4 @@
-const { response } = require("express");
+const { response } = require('express');
 const bcryptjs = require('bcryptjs');
 const Usuario = require('../models/usuario');
 const { generarJWT } = require("../helpers/generar-jwt");
@@ -16,7 +16,7 @@ const login = async (req, res = response) => {
         if(!usuario){
             return res.status(400).json({
                 msg: 'Usuario / Password no son correctos - correo'
-            })
+            });
         }
 
 
@@ -25,7 +25,7 @@ const login = async (req, res = response) => {
         if(!usuario.estado){
             return res.status(400).json({
                 msg: 'Usuario / Password no son correctos - estado: false'
-            })
+            });
         }
 
         //Verificar la contraseña
@@ -33,7 +33,7 @@ const login = async (req, res = response) => {
         if(!validPassword){
             return res.status(400).json({
                 msg: 'Usuario / Password no son correctos - password'
-            })
+            });
         }
 
         //General el JWT
