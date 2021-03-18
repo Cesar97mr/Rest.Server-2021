@@ -2,9 +2,9 @@
   "name": "7-RestServer_Act",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node app"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
